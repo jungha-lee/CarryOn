@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,6 +28,33 @@ public class CarryOnController {
         lowerCaseInput = searchInput.toLowerCase();
         return searchEngine(model);
     }
+
+    @GetMapping("/search/detail/{id}")
+    public String detailPage(Model model, @PathVariable Integer id) {
+        List<Place> places = repository.allPlaces();
+
+        for (Place place : places) {
+            if (place.getId() == id) {
+                Place showPlace = place;
+                model.addAttribute("show_place", showPlace);
+            }
+        }
+        return "carryon_details";
+    }
+
+
+//    @PostMapping("/search/detail/{id}")
+//    public String result(Model model, @PathVariable Integer id){
+//        List<Place> places = repository.allPlaces();
+//
+//        for (Place place : places) {
+//            if (place.getId() == id) {
+//                Place showPlace = place;
+//                model.addAttribute("show_place", showPlace);
+//            }
+//        }
+//        return "carryon_details";
+//    }
 
     public String searchEngine(Model model) {
         if (!lowerCaseInput.equals("")) {

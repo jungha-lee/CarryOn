@@ -49,24 +49,29 @@
     <main role="main">
         <!-- result card thymeleaf-->
         <span th:each="place : ${result_list}">
-            <div class="card mb-3" style="max-width: 80%">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img"
-                            alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${place.name}"></h5>
-                            <h6 class="card-text" th:text="${place.address}"></h6>
-                            <span class="card-text" th:text="'Open: '+${place.timeOpen}+':00-'+${place.timeClose}+':00&nbsp;&nbsp;'"></span>
-                            <span class="card-text" th:text="'Price: '+${place.price}+' SEK/day&nbsp;&nbsp;'"></span>
-                            <span class="card-text" th:text="'Rating: '+${place.rating}"></span>
-                            <p class="card-text"><small class="text-muted" th:text="${place.description}"></small></p>
+            <a th:href="'/search/detail/'+${place.id}">
+                <div class="card mb-3" style="max-width: 80%">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img"
+                                alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${place.name}"></h5>
+                                <h6 class="card-text" th:text="${place.address}"></h6>
+                                <span class="card-text"
+                                    th:text="'Open: '+${place.timeOpen}+':00-'+${place.timeClose}+':00&nbsp;&nbsp;'"></span>
+                                <span class="card-text"
+                                    th:text="'Price: '+${place.price}+' SEK/day&nbsp;&nbsp;'"></span>
+                                <span class="card-text" th:text="'Rating: '+${place.rating}"></span>
+                                <p class="card-text"><small class="text-muted" th:text="${place.description}"></small>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </span>
 
     </main>
