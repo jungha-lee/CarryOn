@@ -41,7 +41,7 @@ public class CarryOnController {
         }
         return "carryon_details";
     }
-    
+
     public String searchEngine(Model model) {
         if (!lowerCaseInput.equals("")) {
             List<Place> places = repository.allPlaces();

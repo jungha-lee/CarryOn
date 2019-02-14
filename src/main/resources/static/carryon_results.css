@@ -2,6 +2,11 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+.carryon_detail_box:hover {
+  cursor: pointer;
+  border: 1px solid #007bfe;
+}
+
 body {
   padding-top: 3rem;
   padding-bottom: 3rem;

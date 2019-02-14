@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="../static/carryon_results.css" th:href="@{/carryon_results.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
-        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-
+    integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link href="../static/carryon_results.css" th:href="@{/carryon_results.css}" rel="stylesheet">
+    
     <title>CarryOn</title>
 </head>
 
@@ -49,8 +49,8 @@
     <main role="main">
         <!-- result card thymeleaf-->
         <span th:each="place : ${result_list}">
-            <a th:href="'/search/detail/'+${place.id}">
-                <div class="card mb-3" style="max-width: 80%">
+            <div class="card mb-3 carryon_detail_box" style="max-width: 80%">
+                <a th:href="'/search/detail/'+${place.id}" style="text-decoration : none; color: inherit;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img"
@@ -70,14 +70,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </span>
 
     </main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../static/carryon.js" th:href="@{/carryon.js}">
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
