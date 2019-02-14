@@ -43,18 +43,26 @@ public class CarryOnController {
         return "carryon_details";
     }
 
-//    booking list below is for myBooking method
+//    booking list below is for myBooking method. No double bookings allowed!
   List<Place> bookingList = new ArrayList<>();
     @GetMapping("/book/{id}")
     public String myBooking(Model model, @PathVariable Integer id) {
         List<Place> places = repository.allPlaces();
-
+        boolean isDouble = false;
+        if(bookingList != null){
+            for(Place place : bookingList){
+                if(place.getId() == id){
+                    isDouble = true;
+                }
+            }
+        }
         for (Place place : places) {
-            if (place.getId() == id) {
+            if (place.getId() == id && !isDouble) {
                 Place bookPlace = place;
                 bookingList.add(bookPlace);
             }
         }
+
         model.addAttribute("book_place", bookingList);
         return "carryon_mybookings";
     }
