@@ -110,12 +110,14 @@
             </a>
         </div>
 
-        <!-- thymeleaf search form -->
-        <form action="search" method="POST">
-            <input type="text" class="form-control" name="searchInput" placeholder="What city do you want to explore?">
-            <input type="submit" class="btn btn-primary btn-lg btn-search" value="Search">
+        <!-- Time picker-->
+        <form action="/action_page.php">
+            <!-- Date picker-->
+        <label for="dateofbirth">Select Date</label>
+        <input type="date" name="dateofbirth" id="dateofbirth">
+            From: <input type="time" name="usr_time">
+            To: <input type="time" name="usr_time">
         </form>
-
         <!-- Search filter -->
         <div class="input-group mb-3">
             <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
@@ -125,15 +127,10 @@
                 <option value="3">100 + </option>
             </select>
         </div>
-
-        <!-- Date picker-->
-        <label for="dateofbirth">Select Date</label>
-        <input type="date" name="dateofbirth" id="dateofbirth">
-
-        <!-- Time picker-->
-        <form action="/action_page.php">
-            From: <input type="time" name="usr_time">
-            To: <input type="time" name="usr_time">
+     <!-- thymeleaf search form -->
+        <form action="search" method="POST">
+            <input type="text" class="form-control" name="searchInput" placeholder="What city do you want to explore?">
+            <input type="submit" class="btn btn-primary btn-lg btn-search" value="Search">
         </form>
     </main>
 

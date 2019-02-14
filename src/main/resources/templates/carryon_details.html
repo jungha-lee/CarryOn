@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <!-- Required meta tags -->
@@ -60,7 +60,12 @@
                 <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
             </div>
 
-        
+            <!-- Book button -->
+            <a th:href="'/book/'+${show_place.id}">
+                <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
+            </a>
+        </div>
+
 
     </main>
 
