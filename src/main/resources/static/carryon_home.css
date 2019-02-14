@@ -16,11 +16,13 @@ body {
 -------------------------------------------------- */
 
 /* Please fix this */
-button {
-  float:center;
+.btn {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
   /* margin: 0 auto;
   text-align: center; */
-}
+
 
 /* Carousel base class */
 .carousel {
