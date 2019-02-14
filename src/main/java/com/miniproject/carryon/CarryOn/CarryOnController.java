@@ -41,21 +41,7 @@ public class CarryOnController {
         }
         return "carryon_details";
     }
-
-
-//    @PostMapping("/search/detail/{id}")
-//    public String result(Model model, @PathVariable Integer id){
-//        List<Place> places = repository.allPlaces();
-//
-//        for (Place place : places) {
-//            if (place.getId() == id) {
-//                Place showPlace = place;
-//                model.addAttribute("show_place", showPlace);
-//            }
-//        }
-//        return "carryon_details";
-//    }
-
+    
     public String searchEngine(Model model) {
         if (!lowerCaseInput.equals("")) {
             List<Place> places = repository.allPlaces();
