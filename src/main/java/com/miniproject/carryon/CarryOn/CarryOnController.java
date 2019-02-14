@@ -39,9 +39,27 @@ public class CarryOnController {
                 model.addAttribute("show_place", showPlace);
             }
         }
+
         return "carryon_details";
     }
-    
+//    booking list below is for myBooking method
+
+  List<Place> bookingList = new ArrayList<>();
+    @GetMapping("/book/{id}")
+    public String myBooking(Model model, @PathVariable Integer id) {
+        List<Place> places = repository.allPlaces();
+
+        for (Place place : places) {
+            if (place.getId() == id) {
+                Place bookPlace = place;
+                bookingList.add(bookPlace);
+            }
+        }
+        model.addAttribute("book_place", bookingList);
+        return "carryon_mybookings";
+    }
+
+
     public String searchEngine(Model model) {
         if (!lowerCaseInput.equals("")) {
             List<Place> places = repository.allPlaces();
