@@ -39,8 +39,7 @@
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Profile</button>
                 </form>
             </div>
         </nav>
@@ -126,6 +125,16 @@
                 <option value="3">100 + </option>
             </select>
         </div>
+
+        <!-- Date picker-->
+        <label for="dateofbirth">Select Date</label>
+        <input type="date" name="dateofbirth" id="dateofbirth">
+
+        <!-- Time picker-->
+        <form action="/action_page.php">
+            From: <input type="time" name="usr_time">
+            To: <input type="time" name="usr_time">
+        </form>
     </main>
 
     <!-- Optional JavaScript -->
@@ -139,6 +148,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
         integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
         crossorigin="anonymous"></script>
+
+
 </body>
+
 
 </html>
