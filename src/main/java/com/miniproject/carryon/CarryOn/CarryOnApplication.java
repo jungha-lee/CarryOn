@@ -9,5 +9,4 @@ public class CarryOnApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CarryOnApplication.class, args);
 	}
-
 }

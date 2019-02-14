@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="carryon_mybookings.css" rel="stylesheet">
+    <link href="../static/carryon_mybookings.css" th:href="@{/carryon_mybookings.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
         integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
 
@@ -58,7 +58,7 @@
             <div class="row no-gutters">
                 <!-- div 1-->
                 <div class="col-md-4" style="max-width: 25%">
-                    <img src="images/stockholm.jpg" class="card-img" alt="...">
+                        <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img" alt="...">
                 </div>
                 <!-- div 2-->
                 <div class="col-md-8" style="max-width: 55%">
@@ -93,7 +93,7 @@
             <div class="row no-gutters">
                 <!-- div 1-->
                 <div class="col-md-4" style="max-width: 25%">
-                    <img src="images/stockholm.jpg" class="card-img" alt="...">
+                        <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img" alt="...">
                 </div>
                 <!-- div 2-->
                 <div class="col-md-8" style="max-width: 55%">

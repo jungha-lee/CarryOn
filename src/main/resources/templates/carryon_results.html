@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="carryon_results.css" rel="stylesheet">
+    <link href="../static/carryon_results.css" th:href="@{/carryon_results.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
         integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
 
@@ -47,81 +47,27 @@
     </header>
 
     <main role="main">
-        <!-- result card 1-->
-        <div class="card mb-3" style="max-width: 80%">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="images/stockholm.jpg" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Academy AB</h5>
-                        <h6 class="card-text">Borgarfjordsgatan 4, 164 55 Kista</h6>
-                        <span class="card-text">Opening hours: 0800-19:00</span>
-                        <span class="card-text">Price: 50 SEK per day</span>
-                        <p class="card-text"><small class="text-muted">We are company situated in Kista. Lorem
-                                ipsum...</small></p>
+        <!-- result card thymeleaf-->
+        <span th:each="place : ${result_list}">
+            <div class="card mb-3" style="max-width: 80%">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img"
+                            alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${place.name}"></h5>
+                            <h6 class="card-text" th:text="${place.address}"></h6>
+                            <span class="card-text" th:text="'Open: '+${place.timeOpen}+':00-'+${place.timeClose}+':00&nbsp;&nbsp;'"></span>
+                            <span class="card-text" th:text="'Price: '+${place.price}+' SEK/day&nbsp;&nbsp;'"></span>
+                            <span class="card-text" th:text="'Rating: '+${place.rating}"></span>
+                            <p class="card-text"><small class="text-muted" th:text="${place.description}"></small></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- result card 2-->
-        <div class="card mb-3" style="max-width: 80%">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="images/stockholm.jpg" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Academy AB</h5>
-                        <h6 class="card-text">Borgarfjordsgatan 4, 164 55 Kista</h6>
-                        <span class="card-text">Opening hours: 0800-19:00</span>
-                        <span class="card-text">Price: 50 SEK per day</span>
-                        <p class="card-text"><small class="text-muted">We are company situated in Kista. Lorem
-                                ipsum...</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- result card 3-->
-        <div class="card mb-3" style="max-width: 80%">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="images/stockholm.jpg" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Academy AB</h5>
-                        <h6 class="card-text">Borgarfjordsgatan 4, 164 55 Kista</h6>
-                        <span class="card-text">Opening hours: 0800-19:00</span>
-                        <span class="card-text">Price: 50 SEK per day</span>
-                        <p class="card-text"><small class="text-muted">We are company situated in Kista. Lorem
-                                ipsum...</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- result card 4-->
-        <div class="card mb-3" style="max-width: 80%">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="images/stockholm.jpg" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Academy AB</h5>
-                        <h6 class="card-text">Borgarfjordsgatan 4, 164 55 Kista</h6>
-                        <span class="card-text">Opening hours: 0800-19:00</span>
-                        <span class="card-text">Price: 50 SEK per day</span>
-                        <p class="card-text"><small class="text-muted">We are company situated in Kista. Lorem
-                                ipsum...</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </span>
 
     </main>
 

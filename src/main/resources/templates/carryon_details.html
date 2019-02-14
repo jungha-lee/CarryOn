@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="carryon_details.css" rel="stylesheet">
+    <link href="../static/carryon_details.css" th:href="@{/carryon_details.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
         integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
 
@@ -49,7 +49,7 @@
     <main role="main">
         <!-- result detail-->
         <div class="card mb-3" style="max-width: 80%">
-            <img src="images/stockholm.jpg" class="card-img-top" alt="...">
+            <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
