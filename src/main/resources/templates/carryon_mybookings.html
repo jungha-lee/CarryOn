@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="../static/carryon_mybookings.css" th:href="@{/carryon_mybookings.css}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" <<<<<<< HEAD
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
         integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
 
     <title>CarryOn</title>
@@ -47,13 +47,13 @@
 
     <main role="main">
         <span th:each="booking : ${book_place}">
-            <h4 class="mybooking-city">Stockholm, Sweden</h4>
-            <div id="to-remove" class="card mb-3 carryon_mybooking_box" style="max-width: 80%">
+            <h4 class="mybooking-city" th:text="${booking.city}+', '+${booking.country}"></h4>
+            <div id="to-remove" class="card mb-3 carryon_mybooking_box" style="max-width: 90%">
                 <div class="row no-gutters">
                     <!-- div 1-->
                     <div class="col-md-3">
-                        <img src="../static/images/office/img1.png"
-                            th:src="@{'/images/office/img' + ${booking.id} + '.png'}" class="card-img" alt="...">
+                        <img src="../static/images/office/img1.jpg"
+                            th:src="@{'/images/office/img' + ${booking.id} + '.jpg'}" class="card-img" alt="...">
                     </div>
                     <!-- div 2-->
                     <div class="col-md-7">
@@ -65,7 +65,8 @@
                                     th:text="'Open: '+${booking.timeOpen}+':00-'+${booking.timeClose}+':00&nbsp;&nbsp;'"></span>
                                 <span class="card-text" th:text="${booking.price}+' SEK'"></span>
                             </div>
-                            <p class="card-text"><small class="text-muted" th:text="${booking.description}"></small></p>
+                            <!-- <p class="card-text"><small class="text-muted" th:text="${booking.description}"></small></p> -->
+                            <p class="card-text"><small class="text-muted">Booking date: 2019-2-15 Friday</small></p>
                         </div>
                     </div>
                     <!-- div 3-->
@@ -79,10 +80,6 @@
             </div>
 
         </span>
-
-        
-        
-        
     </main>
     
     <!-- <script>
@@ -95,7 +92,7 @@
 
     <script>
         $(document).html($("#cancel-btn").on("click", function (event) {
-            $("#to-remove").fadeOut(function () {
+            $("#to-remove").parent().fadeOut(function () {
                 $("#to-remove").remove();
             });
         }));

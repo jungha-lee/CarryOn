@@ -47,8 +47,8 @@
 
     <main role="main">
         <!-- result detail-->
-        <div id="carryon_detail_box" class="card mb-3 carryon_detail_box" style="max-width: 80%">
-            <img src="../static/images/office/img1.png" th:src="@{'/images/office/img' + ${show_place.id} + '.png'}"
+        <div id="carryon_detail_box" class="card mb-3 carryon_detail_box" style="max-width: 70%">
+            <img src="../static/images/office/img1.jpg" th:src="@{'/images/office/img' + ${show_place.id} + '.jpg'}"
                 class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title" th:text="${show_place.name}"></h5>
@@ -63,7 +63,7 @@
 
             <!-- Book button -->
             <a th:href="'/book/'+${show_place.id}">
-                <button type="button" class="btn btn-primary btn-lg btn-search" style="width:100%">Book</button>
+                <button type="button" class="btn btn-primary btn-lg btn-search" style="width:100%">Book this place</button>
             </a>
         </div>
 

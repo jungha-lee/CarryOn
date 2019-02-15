@@ -46,15 +46,15 @@
     </header>
 
     <main role="main">
-        <h5 class="result-numbers">We have found these place(s) for your bag!</h5>
+        <h5 class="result-numbers" th:text="'We have found ' + ${nr_of_results} + ' place(s) for your bag!'"></h5>
         <!-- result card thymeleaf-->
         <span th:each="place : ${result_list}">
             <div class="card mb-3 carryon_result_box" style="max-width: 80%">
                 <a th:href="'/search/detail/'+${place.id}" style="text-decoration : none; color: inherit;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="../static/images/office/img1.png" th:src="@{'/images/office/img' + ${place.id} + '.png'}" class="card-img"
-                                alt="...">
+                            <img src="../static/images/office/img1.jpg"
+                                th:src="@{'/images/office/img' + ${place.id} + '.jpg'}" class="card-img" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

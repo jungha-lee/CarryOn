@@ -66,15 +66,19 @@ public class CarryOnController {
         return "carryon_mybookings";
     }
 
+    //Search and return results and the number of them.
     public String searchEngine(Model model) {
         if (!lowerCaseInput.equals("")) {
             List<Place> places = repository.allPlaces();
             List<Place> resultList = new ArrayList<>();
+            Integer nrResults = 0;
             for (Place place : places) {
                 if (place.getCity().toLowerCase().equals(lowerCaseInput)) {
                     resultList.add(place);
+                    nrResults++;
                 }
             }
+            model.addAttribute("nr_of_results", nrResults);
             model.addAttribute("result_list", resultList);
             return "carryon_results";
         } else {
