@@ -55,15 +55,13 @@
                     <p class="card-text"th:text="${show_place.description}"></p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
-    
-                <!-- Book button -->
-                <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
-            </div>
 
             <!-- Book button -->
             <a th:href="'/book/'+${show_place.id}">
-                <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
+                <button type="button" class="btn btn-primary btn-lg btn-search" style="width:100%">Book</button>
             </a>
+
+
         </div>
 
 
