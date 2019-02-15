@@ -8,13 +8,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="../static/carryon_mybookings.css" th:href="@{/carryon_mybookings.css}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
-<<<<<<< HEAD
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" <<<<<<< HEAD
         integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-=======
-          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-    <script src="jquery-3.3.1.min.js"></script>
->>>>>>> ed151f13d80ad95f2a8abdbfd91f49a4cecbbbca
 
     <title>CarryOn</title>
 </head>
@@ -53,12 +48,12 @@
     <main role="main">
         <span th:each="booking : ${book_place}">
             <h4 class="mybooking-city">Stockholm, Sweden</h4>
-            <div class="card mb-3 carryon_mybooking_box" style="max-width: 80%">
+            <div id="to-remove" class="card mb-3 carryon_mybooking_box" style="max-width: 80%">
                 <div class="row no-gutters">
                     <!-- div 1-->
                     <div class="col-md-3">
-                            <img src="../static/images/office/img1.png" th:src="@{'/images/office/img' + ${booking.id} + '.png'}" class="card-img"
-                            alt="...">
+                        <img src="../static/images/office/img1.png"
+                            th:src="@{'/images/office/img' + ${booking.id} + '.png'}" class="card-img" alt="...">
                     </div>
                     <!-- div 2-->
                     <div class="col-md-7">
@@ -77,33 +72,35 @@
                     <div class="col-md-2 text-right row align-items-center">
                         <!-- Book button -->
                         <button type="button" class="btn btn-outline-primary" style="width: 100px">Change</button><br>
-                        <button type="button" class="btn btn-outline-danger" style="width: 100px">Cancel</button>
+                        <button onclick="myFunction()" th:id="${booking.id}" id="cancel-btn" type="button"
+                            class="btn btn-outline-danger" style="width: 100px">Cancel</button>
                     </div>
                 </div>
             </div>
-            // fix here
-        </div>
-        <!-- div 3-->
-        <div class="col-md-8" style="max-width: 10%">
-            <!-- Book button -->
-            <button type="button" class="btn btn-primary" style="width: 100px">Change</button><br>
-           <button  onclick="myFunction()" th:id = "${booking.id}"    id="cancel-btn" type="button" class="btn btn-danger" style="width: 100px">Cancel</button>
-        </div>
-    </div>
-</div>
 
         </span>
-    <script>
-        $(document).ready(function(){
-          $("#cancel-btn").click(function(){
-            $("#to-remove").remove();
-          });
-        });
-        </script>
 
-
+        
+        
+        
     </main>
+    
+    <!-- <script>
+        $(document).on("click", '#cancel-btn', function () {
+            $(this).closest('div').fadeOut('slow', function () {
+                $(this).remove();
+            });
+        });
+    </script> -->
 
+    <script>
+        $(document).html($("#cancel-btn").on("click", function (event) {
+            $("#to-remove").fadeOut(function () {
+                $("#to-remove").remove();
+            });
+        }));
+    </script>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

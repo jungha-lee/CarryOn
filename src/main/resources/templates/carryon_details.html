@@ -47,9 +47,9 @@
 
     <main role="main">
         <!-- result detail-->
-<<<<<<< HEAD
         <div id="carryon_detail_box" class="card mb-3 carryon_detail_box" style="max-width: 80%">
-                <img src="../static/images/office/img1.png" th:src="@{'/images/office/img' + ${show_place.id} + '.png'}" class="card-img-top" alt="...">
+            <img src="../static/images/office/img1.png" th:src="@{'/images/office/img' + ${show_place.id} + '.png'}"
+                class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title" th:text="${show_place.name}"></h5>
                 <h6 class="card-text" th:text="${show_place.address}"></h6>
@@ -62,29 +62,9 @@
             </div>
 
             <!-- Book button -->
-            <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
-        </div>
-
-        <!-- Book button -->
-        <a th:href="'/book/'+${show_place.id}">
-            <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
-        </a>
-=======
-        <div class="card mb-3" style="max-width: 80%">
-                <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${show_place.name}"></h5>
-                    <p class="card-text"th:text="${show_place.description}"></p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-
-            <!-- Book button -->
             <a th:href="'/book/'+${show_place.id}">
                 <button type="button" class="btn btn-primary btn-lg btn-search" style="width:100%">Book</button>
             </a>
-
-
->>>>>>> ed151f13d80ad95f2a8abdbfd91f49a4cecbbbca
         </div>
 
 
