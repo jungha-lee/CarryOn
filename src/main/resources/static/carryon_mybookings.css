@@ -2,6 +2,16 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+.carryon_mybooking_box {
+  margin: 0 auto;
+}
+
+.mybooking-city {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
 body {
   padding-top: 3rem;
   padding-bottom: 3rem;

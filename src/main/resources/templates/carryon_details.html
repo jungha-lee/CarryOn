@@ -26,21 +26,20 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="carryon_home.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Results <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="carryon_mybookings.html">My Bookings</a>
+                        <a class="nav-link" href="#">My Bookings</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">F.A.Q</a>
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-sm btn-outline-light my-2 my-sm-0" type="submit">My profile</button>
                 </form>
             </div>
         </nav>
@@ -48,22 +47,27 @@
 
     <main role="main">
         <!-- result detail-->
-        <div class="card mb-3" style="max-width: 80%">
-                <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${show_place.name}"></h5>
-                    <p class="card-text"th:text="${show_place.description}"></p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-    
-                <!-- Book button -->
-                <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
+        <div id="carryon_detail_box" class="card mb-3 carryon_detail_box" style="max-width: 80%">
+                <img src="../static/images/office/img1.png" th:src="@{'/images/office/img' + ${show_place.id} + '.png'}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${show_place.name}"></h5>
+                <h6 class="card-text" th:text="${show_place.address}"></h6>
+                <p class="card-text" th:text="${show_place.description}"></p>
+                <span class="card-text"
+                    th:text="'Open: '+${show_place.timeOpen}+':00-'+${show_place.timeClose}+':00&nbsp;&nbsp;'"></span>
+                <span class="card-text" th:text="'Price: '+${show_place.price}+' SEK/day&nbsp;&nbsp;'"></span>
+                <span class="card-text" th:text="'Rating: '+${show_place.rating}"></span>
+                <p class="card-text"><small class="text-muted" th:text="${show_place.description}"></small></p>
             </div>
 
             <!-- Book button -->
-            <a th:href="'/book/'+${show_place.id}">
-                <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
-            </a>
+            <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
+        </div>
+
+        <!-- Book button -->
+        <a th:href="'/book/'+${show_place.id}">
+            <button type="button" class="btn btn-primary btn-lg btn-search">Book</button>
+        </a>
         </div>
 
 

@@ -2,6 +2,14 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+#carryon_detail_box {
+  margin-top : 3rem;
+}
+
+.carryon_detail_box {
+  margin: 0 auto;
+}
+
 body {
   padding-top: 3rem;
   padding-bottom: 3rem;

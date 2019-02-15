@@ -2,9 +2,21 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
-.carryon_detail_box:hover {
+.carryon_result_box {
+  margin: 0 auto;
+}
+
+.carryon_result_box:hover {
   cursor: pointer;
   border: 1px solid #007bfe;
+  display: block;
+  margin: 0 auto;
+}
+
+.result-numbers {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 }
 
 body {

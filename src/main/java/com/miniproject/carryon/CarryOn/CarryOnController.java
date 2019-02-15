@@ -14,6 +14,8 @@ import java.util.List;
 @Controller
 public class CarryOnController {
     public static String lowerCaseInput;
+    //booking list below is for myBooking method
+    List<Place> bookingList = new ArrayList<>();
 
     @Autowired
     private PlaceRepo repository;
@@ -39,12 +41,9 @@ public class CarryOnController {
                 model.addAttribute("show_place", showPlace);
             }
         }
-
         return "carryon_details";
     }
 
-//    booking list below is for myBooking method
-  List<Place> bookingList = new ArrayList<>();
     @GetMapping("/book/{id}")
     public String myBooking(Model model, @PathVariable Integer id) {
         List<Place> places = repository.allPlaces();

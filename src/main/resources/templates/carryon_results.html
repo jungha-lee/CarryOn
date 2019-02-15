@@ -8,9 +8,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
-    integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <link href="../static/carryon_results.css" th:href="@{/carryon_results.css}" rel="stylesheet">
-    
+
     <title>CarryOn</title>
 </head>
 
@@ -26,34 +26,34 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="carryon_home.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Results <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="carryon_mybookings.html">My Bookings</a>
+                        <a class="nav-link" href="#">My Bookings</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">F.A.Q</a>
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-sm btn-outline-light my-2 my-sm-0" type="submit">My profile</button>
                 </form>
             </div>
         </nav>
     </header>
 
     <main role="main">
+        <h5 class="result-numbers">We have found these place(s) for your bag!</h5>
         <!-- result card thymeleaf-->
         <span th:each="place : ${result_list}">
-            <div class="card mb-3 carryon_detail_box" style="max-width: 80%">
+            <div class="card mb-3 carryon_result_box" style="max-width: 80%">
                 <a th:href="'/search/detail/'+${place.id}" style="text-decoration : none; color: inherit;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="../static/images/stockholm.jpg" th:src="@{/images/stockholm.jpg}" class="card-img"
+                            <img src="../static/images/office/img1.png" th:src="@{'/images/office/img' + ${place.id} + '.png'}" class="card-img"
                                 alt="...">
                         </div>
                         <div class="col-md-8">
