@@ -1,4 +1,4 @@
-package com.miniproject.carryon.CarryOn;
+package com.miniproject.carryon;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

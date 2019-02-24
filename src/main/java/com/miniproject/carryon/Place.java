@@ -1,4 +1,4 @@
-package com.miniproject.carryon.CarryOn;
+package com.miniproject.carryon;
 
 public class Place {
     private int id;
@@ -11,14 +11,18 @@ public class Place {
     private int timeOpen;
     private int timeClose;
     private int rating;
+    private double lat;
+    private double lng;
     private String description;
 
-    public Place(int id, String country, String city, String address, String name, Boolean isCompany, double price, int timeOpen, int timeClose, int rating, String description) {
+    public Place(int id, String country, String city, String address, String name, double lat, double lng, Boolean isCompany, double price, int timeOpen, int timeClose, int rating, String description) {
         this.id = id;
         this.country = country;
         this.city = city;
         this.address = address;
         this.name = name;
+        this.lat = lat;
+        this.lng = lng;
         this.isCompany = isCompany;
         this.price = price;
         this.timeOpen = timeOpen;
@@ -45,6 +49,14 @@ public class Place {
 
     public String getName() {
         return name;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLng() {
+        return lng;
     }
 
     public Boolean getCompany() {

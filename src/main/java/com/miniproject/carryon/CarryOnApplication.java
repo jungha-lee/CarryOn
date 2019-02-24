@@ -1,4 +1,4 @@
-package com.miniproject.carryon.CarryOn;
+package com.miniproject.carryon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.miniproject.carryon.CarryOn;
+package com.miniproject.carryon;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

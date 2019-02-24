@@ -47,6 +47,8 @@
 
     <main role="main">
         <h5 class="result-numbers" th:text="'We have found ' + ${nr_of_results} + ' place(s) for your bag!'"></h5>
+        <!-- Google maps result on one page -->
+        <div id="my_map"></div>
         <!-- result card thymeleaf-->
         <span th:each="place : ${result_list}">
             <div class="card mb-3 carryon_result_box" style="max-width: 80%">
@@ -77,9 +79,23 @@
     </main>
 
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../static/carryon.js" th:href="@{/carryon.js}">
+
+    <!-- Google Maps  -->
+    <script>
+        function initMap() {
+            // The location of Place
+            var my_location = { lat: 59.3262416, lng: 17.8416298 };
+            // The map, centered at Uluru
+            var my_map = new google.maps.Map(
+                document.getElementById('my_map'), { zoom: 10, center: my_location });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: my_location, map: my_map });
+        }
     </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDr2Uoe6gyip5He5LRwYNPyBV3tHzTFhY0&callback=initMap"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
