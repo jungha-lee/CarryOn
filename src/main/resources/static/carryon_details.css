@@ -15,8 +15,8 @@ body {
 
 /* Google maps size */
 #my_map {
-  height: 500px;
   /* The height is 500 pixels */
-  width: 100%;
+  height: 500px;
   /* The width is the width of the web page */
+  width: 100%;
 }

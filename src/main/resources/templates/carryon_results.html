@@ -46,9 +46,9 @@
     </header>
 
     <main role="main">
-        <h5 class="result-numbers" th:text="'We have found ' + ${nr_of_results} + ' place(s) for your bag!'"></h5>
         <!-- Google maps result on one page -->
-        <div id="my_map"></div>
+        <h5 class="result-numbers" th:text="'We have found ' + ${nr_of_results} + ' place(s) for your bag!'"></h5>
+        <div id="map_list"></div>
         <!-- result card thymeleaf-->
         <span th:each="place : ${result_list}">
             <div class="card mb-3 carryon_result_box" style="max-width: 80%">
@@ -83,13 +83,41 @@
     <!-- Google Maps  -->
     <script>
         function initMap() {
-            // The location of Place
-            var my_location = { lat: 59.3262416, lng: 17.8416298 };
-            // The map, centered at Uluru
-            var my_map = new google.maps.Map(
-                document.getElementById('my_map'), { zoom: 10, center: my_location });
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({ position: my_location, map: my_map });
+            var my_center = { lat: 59.352648, lng: 18.070253 };
+
+            var locations = [
+                ['Place A', 59.359163, 17.974759], ['Place B', 59.330144, 18.065417]
+            ]
+            var map_list = new google.maps.Map(
+                document.getElementById('map_list'), { zoom: 10, center: my_center });
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map_list,
+                    data: {
+                        name: locations[i][0]
+                    }
+                });
+                marker.addListener('click', function () {
+                    if (!this.infoWindow) {
+                        this.infoWindow = new google.maps.InfoWindow({
+                            content: this.data.name
+                        });
+                    }
+                    this.infoWindow.open(map_list, this);
+                })
+            }
+
+            // ----------------------------------------------
+
+            // // The location of Place
+            // var my_location = { lat: 59.3262416, lng: 17.8416298 };
+            // // The map, centered at Place
+            // var map_list = new google.maps.Map(
+            //     document.getElementById('map_list'), { zoom: 10, center: my_location });
+            // // The marker, positioned at Place
+            // var marker = new google.maps.Marker({ position: my_location, map: map_list });
         }
     </script>
     <script async defer
