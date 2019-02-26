@@ -81,15 +81,22 @@
     <!-- Optional JavaScript -->
 
     <!-- Google Maps  -->
-    <script>
+    <script th:inline="javascript">
         function initMap() {
             var my_center = { lat: 59.352648, lng: 18.070253 };
-
-            var locations = [
-                ['Place A', 59.359163, 17.974759], ['Place B', 59.330144, 18.065417]
-            ]
+            var locations = [];
+            /*<![CDATA[*/
+                /*[# th:each="place : ${result_list}"]*/
+                var eachItem = [];
+                eachItem.push(/*[[${place.name}]]*/);
+                eachItem.push(/*[[${place.lat}]]*/);
+                eachItem.push(/*[[${place.lng}]]*/);
+                locations.push(eachItem);
+                console.log(locations);
+                /*[/]*/
+            /*]]>*/
             var map_list = new google.maps.Map(
-                document.getElementById('map_list'), { zoom: 10, center: my_center });
+                document.getElementById('map_list'), { zoom: 11, center: my_center });
 
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
@@ -108,16 +115,6 @@
                     this.infoWindow.open(map_list, this);
                 })
             }
-
-            // ----------------------------------------------
-
-            // // The location of Place
-            // var my_location = { lat: 59.3262416, lng: 17.8416298 };
-            // // The map, centered at Place
-            // var map_list = new google.maps.Map(
-            //     document.getElementById('map_list'), { zoom: 10, center: my_location });
-            // // The marker, positioned at Place
-            // var marker = new google.maps.Marker({ position: my_location, map: map_list });
         }
     </script>
     <script async defer

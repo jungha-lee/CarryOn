@@ -82,26 +82,27 @@
         function initMap() {
             // The location of Place
             var my_location = {lat: 59.3262416, lng: 17.8416298};
-            // The map, centered at Uluru
+            // The map, centered at Place
             var my_map = new google.maps.Map(
                 document.getElementById('my_map'), { zoom: 10, center: my_location });
-            // The marker, positioned at Uluru
+            // The marker, positioned at Place
             var marker = new google.maps.Marker({ position: my_location, map: my_map });
         }
     </script> -->
 
     <script th:inline="javascript">
-        /*<![CDATA[*/
+        console.log('detail_haha');
         function initMap() {
             // The location of Place
+            /*<![CDATA[*/
             var my_location = { lat: [[${ show_place.lat }]], lng: [[${ show_place.lng }]] };
+            /*]]>*/
             // The map, centered at Place
             var my_map = new google.maps.Map(
                 document.getElementById('my_map'), { zoom: 13, center: my_location });
             // The marker, positioned at Place
             var marker = new google.maps.Marker({ position: my_location, map: my_map });
         }
-    /*]]>*/
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDr2Uoe6gyip5He5LRwYNPyBV3tHzTFhY0&callback=initMap"></script>
