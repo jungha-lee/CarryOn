@@ -84,32 +84,30 @@
     <script th:inline="javascript">
         function initMap() {
             var locations = [];
-            var sumLat = 0;
-            var sumLng = 0;
-            var numOfPlaces = 0;
-            
+            var listLat = [];
+            var listLng = [];
+
             /*<![CDATA[*/
-                /*[# th:each="place : ${result_list}"]*/
-                var onePlace = [];
+            /*[# th:each="place : ${result_list}"]*/
+            var onePlace = [];
 
-                onePlace.push(/*[[${place.name}]]*/);
-                onePlace.push(/*[[${place.lat}]]*/);
-                onePlace.push(/*[[${place.lng}]]*/);
-                locations.push(onePlace);
-                
-                sumLat = sumLat + parseFloat(/*[[${place.lat}]]*/);
-                sumLng = sumLng + parseFloat(/*[[${place.lng}]]*/);
-                numOfPlaces++;
+            onePlace.push(/*[[${place.name}]]*/);
+            onePlace.push(/*[[${place.lat}]]*/);
+            onePlace.push(/*[[${place.lng}]]*/);
+            locations.push(onePlace);
 
-                /*[/]*/
+            listLat.push(parseFloat(/*[[${place.lat}]]*/));
+            listLng.push(parseFloat(/*[[${place.lng}]]*/));
+
+            /*[/]*/
             /*]]>*/
 
-            var center_lat = sumLat / numOfPlaces;
-            var center_lng = sumLng / numOfPlaces;
+            var center_lat = (Math.max(...listLat) + Math.min(...listLat)) / 2
+            var center_lng = (Math.max(...listLng) + Math.min(...listLng)) / 2
 
             var my_center = { lat: center_lat, lng: center_lng };
             var map_list = new google.maps.Map(
-                document.getElementById('map_list'), { zoom: 9, center: my_center });
+                document.getElementById('map_list'), { zoom: 12, center: my_center });
 
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
