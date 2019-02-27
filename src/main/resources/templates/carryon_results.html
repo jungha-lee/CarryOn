@@ -83,20 +83,33 @@
     <!-- Google Maps  -->
     <script th:inline="javascript">
         function initMap() {
-            var my_center = { lat: 59.352648, lng: 18.070253 };
             var locations = [];
+            var sumLat = 0;
+            var sumLng = 0;
+            var numOfPlaces = 0;
+            
             /*<![CDATA[*/
                 /*[# th:each="place : ${result_list}"]*/
-                var eachItem = [];
-                eachItem.push(/*[[${place.name}]]*/);
-                eachItem.push(/*[[${place.lat}]]*/);
-                eachItem.push(/*[[${place.lng}]]*/);
-                locations.push(eachItem);
-                console.log(locations);
+                var onePlace = [];
+
+                onePlace.push(/*[[${place.name}]]*/);
+                onePlace.push(/*[[${place.lat}]]*/);
+                onePlace.push(/*[[${place.lng}]]*/);
+                locations.push(onePlace);
+                
+                sumLat = sumLat + parseFloat(/*[[${place.lat}]]*/);
+                sumLng = sumLng + parseFloat(/*[[${place.lng}]]*/);
+                numOfPlaces++;
+
                 /*[/]*/
             /*]]>*/
+
+            var center_lat = sumLat / numOfPlaces;
+            var center_lng = sumLng / numOfPlaces;
+
+            var my_center = { lat: center_lat, lng: center_lng };
             var map_list = new google.maps.Map(
-                document.getElementById('map_list'), { zoom: 11, center: my_center });
+                document.getElementById('map_list'), { zoom: 9, center: my_center });
 
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
