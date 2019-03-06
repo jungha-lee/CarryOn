@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Results</a>
@@ -46,7 +46,7 @@
     </header>
 
     <main role="main">
-        <span th:each="booking : ${book_place}">
+        <span th:each="booking : ${session.book_place}">
             <h4 class="mybooking-city" th:text="${booking.city}+', '+${booking.country}"></h4>
             <div id="to-remove" class="card mb-3 carryon_mybooking_box" style="max-width: 90%">
                 <div class="row no-gutters">

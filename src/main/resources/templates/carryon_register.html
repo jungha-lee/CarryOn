@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Registration Page</title>
 </head>
 <body>
-$END$
+<form action="/register" method="POST">
+    Username: <input type="text" name="username"/>
+    FirstName: <input type="text" name="FirstName"/>
+    LastName: <input type="text" name="LastName"/>
+    Email: <input type="email" name="Email"/>
+    Password: <input type="password" name="password"/>
+    
+    <input type="submit" value="Register">
+</form>
 </body>
 </html>
