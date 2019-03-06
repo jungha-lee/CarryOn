@@ -3,13 +3,11 @@ package com.miniproject.carryon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.HttpSessionRequiredException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +81,7 @@ public class CarryOnController {
         }
     }
 
-    //Method for chosing which booking to book.
+    //Method for choosing which booking to book.
     public String booking(Model model, int id){
         List<Place> places = repository.allPlaces();
         boolean isDouble = false;
