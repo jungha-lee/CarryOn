@@ -3,11 +3,13 @@ package com.miniproject.carryon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.HttpSessionRequiredException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,28 +50,19 @@ public class CarryOnController {
         return "carryon_details";
     }
 
-    @GetMapping("/book/{id}")
-    public String myBooking(Model model, @PathVariable Integer id) {
-        List<Place> places = repository.allPlaces();
-        boolean isDouble = false;
-        if(bookingList != null){
-            for(Place place : bookingList){
-                if(place.getId() == id){
-                    isDouble = true;
-                }
-            }
-        }
-        for (Place place : places) {
-            if (place.getId() == id && !isDouble) {
-                Place bookPlace = place;
-                bookingList.add(bookPlace);
-            }
-        }
-
+    @GetMapping ("/book")
+    public String myBookings(Model model){
         model.addAttribute("book_place", bookingList);
         return "carryon_mybookings";
     }
 
+    @PostMapping("/book")
+    public String myBooking(Model model, @RequestParam String id) {
+        int bookingId = Integer.parseInt(id);
+        return booking(model, bookingId);
+    }
+
+    //MOVE METHODS TO SEPARATE CLASS!!!
     //Search and return results and the number of them.
     public String searchEngine(Model model) {
         if (!lowerCaseInput.equals("")) {
@@ -88,5 +81,27 @@ public class CarryOnController {
         } else {
             return "carryon_home";
         }
+    }
+
+    //Method for chosing which booking to book.
+    public String booking(Model model, int id){
+        List<Place> places = repository.allPlaces();
+        boolean isDouble = false;
+        if(bookingList != null){
+            for(Place place : bookingList){
+                if(place.getId() == id){
+                    isDouble = true;
+                }
+            }
+        }
+        for (Place place : places) {
+            if (place.getId() == id && !isDouble) {
+                Place bookPlace = place;
+                bookingList.add(bookPlace);
+            }
+        }
+
+        model.addAttribute("book_place", bookingList);
+        return "carryon_mybookings";
     }
 }
