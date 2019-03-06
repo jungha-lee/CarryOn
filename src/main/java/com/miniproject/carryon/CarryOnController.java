@@ -14,22 +14,26 @@ import java.util.List;
 @Controller
 public class CarryOnController {
     public static String lowerCaseInput;
-    //    booking list below is for myBooking method. No double bookings allowed!
+    // booking list below is for myBooking method.
     List<Place> bookingList = new ArrayList<>();
 
     @Autowired
     private PlaceRepo repository;
 
+    // when you connect to localhost:8080 - it shows carryon_home.html
     @GetMapping("/")
     public String home() {
         return "carryon_home";
     }
 
+    // when a form(action=search) in html is submitted, this executed.
+    // searchInput is coming from inputfield name in html.
     @PostMapping("/search")
     public String search(Model model, @RequestParam String searchInput) {
         lowerCaseInput = searchInput.toLowerCase();
         return searchEngine(model);
     }
+
 
     @GetMapping("/search/detail/{id}")
     public String detailPage(Model model, @PathVariable Integer id) {
