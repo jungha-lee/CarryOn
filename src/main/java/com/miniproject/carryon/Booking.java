@@ -1,7 +1,6 @@
 package com.miniproject.carryon;
 
 import javax.persistence.*;
-import java.util.Date;
 
 
 @Entity
@@ -16,11 +15,15 @@ public class Booking {
     @Column(name = "BAG_AMOUNT")
     private int bagAmount;
     @Column(name = "DATE_START")
-    private Date dateStart;
+    private String dateStart;
     @Column(name = "DATE_END")
-    private Date dateEnd;
+    private String dateEnd;
 
-    public Booking(Integer id, Integer customerId, Integer placeId, int bagAmount, Date dateStart, Date dateEnd) {
+    public Booking() {
+
+    }
+
+    public Booking(Integer id, int customerId, int placeId, int bagAmount, String dateStart, String dateEnd) {
         this.id = id;
         this.customerId = customerId;
         this.placeId = placeId;
@@ -61,19 +64,19 @@ public class Booking {
         this.bagAmount = bagAmount;
     }
 
-    public Date getDateStart() {
+    public String getDateStart() {
         return dateStart;
     }
 
-    public void setDateStart(Date dateStart) {
+    public void setDateStart(String dateStart) {
         this.dateStart = dateStart;
     }
 
-    public Date getDateEnd() {
+    public String getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(Date dateEnd) {
+    public void setDateEnd(String dateEnd) {
         this.dateEnd = dateEnd;
     }
 }

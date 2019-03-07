@@ -19,6 +19,8 @@ public class CarryOnApplicationTests {
     CustomerRepo customerRepo;
     @Autowired
     BookingRepo bookingRepo;
+    @Autowired
+    CarryOnController carryOnController;
 
 	@Test
 	public void contextLoads() {
@@ -42,6 +44,11 @@ public class CarryOnApplicationTests {
         Assert.assertEquals("number of bookings", 2, bookings.size());
     }
 
+//    @Test
+//    public void testDataForCaseSensitive(Model model, String city) {
+//        List<Place> places = (List<Place>)carryOnController.search(model,city);
+//        Assert.assertEquals("number of places", 3, places.size());
+//    }
 
 }
 
