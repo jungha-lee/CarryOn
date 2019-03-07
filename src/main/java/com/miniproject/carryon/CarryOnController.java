@@ -29,13 +29,15 @@ public class CarryOnController {
     public String loginForm() {
         return "carryon_login";
     }
-
-    // todo Query for login
+    
     @PostMapping("/")
     public String LoginForm(HttpSession session, @RequestParam String username, @RequestParam String password) {
-        if (username.equals("emma") && password.equals("123")) {
-            session.setAttribute("username", username);
-            return "carryon_home";
+        if (customerRepo.findCustomerByUsername(username) != null) {
+            String savedPassword = customerRepo.findCustomerByUsername(username).getPassword();
+            if (password.equals(savedPassword)) {
+                session.setAttribute("username", username);
+                return "carryon_home";
+            }
         }
         return "carryon_login";
     }
@@ -95,8 +97,8 @@ public class CarryOnController {
     }
 
 
-    @GetMapping ("/book")
-    public String myBookings(HttpSession session){
+    @GetMapping("/book")
+    public String myBookings(HttpSession session) {
         String username = (String) session.getAttribute("username");
         List<Booking> bookings = (List<Booking>) bookingRepo.findBookingsByUserName(username);
         if (username != null) {

@@ -9,6 +9,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private String username;
     @Email
     private String email;
     private String password;
@@ -17,14 +18,15 @@ public class Customer {
 
     }
 
-    public Customer(Integer id, String name, @Email String email, String password) {
+    public Customer(Integer id, String name, String username, @Email String email, String password) {
         this.id = id;
         this.name = name;
+        this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -38,6 +40,14 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
