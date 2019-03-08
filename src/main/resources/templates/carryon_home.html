@@ -38,7 +38,18 @@
                         <a class="nav-link disabled" href="#">F.A.Q</a>
                     </li>
                 </ul>
-                <button class="btn btn-sm btn-outline-light my-2 my-sm-0" onclick="window.location.href = '/logout';">Log out</button>
+
+                <ul class="navbar-nav">
+                    <li><img src="../static/images/jungha.jpg" th:src="@{'/images/' + ${customer} + '.jpg'}"
+                            class="card-img-top" alt="..."></li>
+
+                </ul>
+                <ul class="navbar-nav">
+                    <li style="color:white" th:text="'&nbsp;&nbsp;Hello, '+${customer}+'&nbsp;!&nbsp;'">Hello!&nbsp;</li>
+                </ul>
+
+                <button class="btn btn-sm btn-outline-light my-2 my-sm-0"
+                    onclick="window.location.href = '/logout';">Log out</button>
             </div>
         </nav>
     </header>

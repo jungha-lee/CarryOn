@@ -31,11 +31,14 @@ public class CarryOnController {
     }
     
     @PostMapping("/")
-    public String LoginForm(HttpSession session, @RequestParam String username, @RequestParam String password) {
+    public String LoginForm(Model model, HttpSession session, @RequestParam String username, @RequestParam String password) {
         if (customerRepo.findCustomerByUsername(username) != null) {
             String savedPassword = customerRepo.findCustomerByUsername(username).getPassword();
             if (password.equals(savedPassword)) {
+//                Customer customer = customerRepo.findCustomerByUsername(username); //
+//                session.setAttribute("customer",customer); //
                 session.setAttribute("username", username);
+                model.addAttribute("customer",username);
                 return "carryon_home";
             }
         }

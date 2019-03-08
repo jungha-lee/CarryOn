@@ -47,7 +47,7 @@ public class CarryOnApplicationTests {
     @Test
     public void addBookings(){
         List<Place> bookings = (List<Place>)placeRepo.findBookingsByUserName("emma");
-        Assert.assertEquals("number of bookings", 1, bookings.size());
+        Assert.assertEquals("number of bookings", 2, bookings.size());
     }
 
 //    @Test
