@@ -8,6 +8,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name="FULL_NAME")
     private String name;
     private String username;
     @Email

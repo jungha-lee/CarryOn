@@ -65,10 +65,10 @@
                 <p class="card-text"><small class="text-muted" th:text="${show_place.description}"></small></p>
             </div>
 
-
-            <form action="/book" method="POST">
-                <button type="submit" id="btn-search" class="btn btn-primary btn-search"  th:value="${show_place.id}" name="id">Book this place</button>
-            </form>
+            <button><a href ="/book">Add this place</a></button>
+            <!--<form action="/book" method="POST">-->
+                <!--<button type="submit" id="btn-search" class="btn btn-primary btn-search"  th:value="${show_place.id}" name="id">Book this place</button>-->
+            <!--</form>-->
 
 
         </div>

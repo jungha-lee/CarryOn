@@ -100,7 +100,7 @@ public class CarryOnController {
     @GetMapping("/book")
     public String myBookings(HttpSession session) {
         String username = (String) session.getAttribute("username");
-        List<Booking> bookings = (List<Booking>) bookingRepo.findBookingsByUserName(username);
+        List<Place> bookings = (List<Place>) placeRepo.findBookingsByUserName(username);
         if (username != null) {
             session.setAttribute("book_place", bookings);
         }

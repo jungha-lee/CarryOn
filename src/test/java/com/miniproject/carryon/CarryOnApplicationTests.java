@@ -44,6 +44,12 @@ public class CarryOnApplicationTests {
         Assert.assertEquals("number of bookings", 2, bookings.size());
     }
 
+    @Test
+    public void addBookings(){
+        List<Place> bookings = (List<Place>)placeRepo.findBookingsByUserName("emma");
+        Assert.assertEquals("number of bookings", 1, bookings.size());
+    }
+
 //    @Test
 //    public void testDataForCaseSensitive(Model model, String city) {
 //        List<Place> places = (List<Place>)carryOnController.search(model,city);
