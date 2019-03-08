@@ -35,6 +35,12 @@ body {
   color: #5a5a5a;
 }
 
+.signin {
+  text-align: center;
+  color:#AAAAAA;
+  bottom: 3rem;
+}
+
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
